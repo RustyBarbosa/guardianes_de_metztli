@@ -1,0 +1,22 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+
+    <rect x="20" y="18" width="10" height="50" rx="5" fill="#0066FF"></rect>
+
+    <rect x="45" y="18" width="10" height="50" rx="5" fill="#FFD200"></rect>
+
+    <rect x="70" y="18" width="10" height="50" rx="5" fill="#666666"></rect>
+
+    <rect x="95" y="18" width="10" height="50" rx="5" fill="#00A651"></rect>
+
+    <rect x="120" y="18" width="10" height="50" rx="5" fill="#E53935"></rect>
+
+    <text x="150" y="38" font-size="16" font-family="Lexend, Arial, sans-serif" font-weight="700" fill="#5B2E91">
+        Guardianes
+    </text>
+
+    <text x="150" y="58" font-size="16" font-family="Lexend, Arial, sans-serif" font-weight="700" fill="#5B2E91">
+        de Metztli
+    </text>
+
+</svg>
