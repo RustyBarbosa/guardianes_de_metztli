@@ -97,31 +97,34 @@
     <!-- ========================= -->
     <!-- Sensory Dynamic -->
     <!-- ========================= -->
-   <section id="dynamic" class="section">
+    <section id="dynamic" class="section">
         <div class="container">
             <h2>Sensory Warm-Up Dynamic</h2>
             <p><em>"Misión Metztli: Sintonizando nuestros sensores"</em></p>
-            <p>A single form collects the following three responses:</p>
 
-            <div class="card">
-                <h3>Question 1 · Word Cloud</h3>
-                <p><strong>Prompt:</strong> <em>"Escribe 1 o 2 palabras de cómo te imaginas que se siente la arena en la superficie de la Luna."</em></p>
-                <p><strong>Goal:</strong> Collect prior ideas about the temperature and texture of lunar regolith (cold, hot, soft, rough).</p>
+            <form class="card dynamic-form" onsubmit="return false;">
+                <div class="form-question">
+                    <label for="q1">1. Escribe 1 o 2 palabras de cómo te imaginas que se siente la arena en la superficie de la Luna.</label>
+                    <input type="text" id="q1" name="q1" placeholder="Ej. fría, suave...">
+                </div>
 
-                <h3>Question 2 · Interactive Slider (1–5)</h3>
-                <p><strong>Prompt:</strong> <em>"¿Qué tan cómodo/a te sientes tocando cosas muy frías o muy calientes cuando necesitas calmarte o concentrarte?"</em></p>
-                <p>(1 = Muy incómodo / 5 = Muy agradable)</p>
-                <p><strong>Goal:</strong> Introduce the neuroscientific variable of emotional regulation through thermal stimuli.</p>
+                <div class="form-question">
+                    <label for="q2">2. ¿Qué tan cómodo/a te sientes tocando cosas muy frías o muy calientes cuando necesitas calmarte o concentrarte?</label>
+                    <input type="range" id="q2" name="q2" min="1" max="5" value="3" oninput="document.getElementById('q2-val').textContent = this.value">
+                    <div class="scale-labels">
+                        <span>1 = Muy incómodo</span>
+                        <span id="q2-val">3</span>
+                        <span>5 = Muy agradable</span>
+                    </div>
+                </div>
 
-                <h3>Question 3 · Interactive Quiz</h3>
-                <p><strong>Prompt:</strong> <em>"Los antiguos mayas representaban el número 5 usando..."</em></p>
-                <ul>
-                    <li>A) Un círculo</li>
-                    <li>B) Una barra horizontal</li>
-                    <li>C) Un triángulo</li>
-                </ul>
-                <p><strong>Goal:</strong> Connect immediately with Mesoamerican mathematics before using counting chips.</p>
-            </div>
+                <div class="form-question">
+                    <p>3. Los antiguos mayas representaban el número 5 usando...</p>
+                    <label class="option"><input type="radio" name="q3" value="A"> A) Un círculo</label>
+                    <label class="option"><input type="radio" name="q3" value="B"> B) Una barra horizontal</label>
+                    <label class="option"><input type="radio" name="q3" value="C"> C) Un triángulo</label>
+                </div>
+            </form>
 
             <a href="https://huggingface.co/spaces/EHRley/GuardianesdeMeztli" class="button" target="_blank" rel="noopener">Launch Dynamic</a>
         </div>
