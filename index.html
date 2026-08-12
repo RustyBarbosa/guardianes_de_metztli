@@ -102,33 +102,56 @@
             <h2>Sensory Warm-Up Dynamic</h2>
             <p><em>"Misión Metztli: Sintonizando nuestros sensores"</em></p>
 
-            <form class="card dynamic-form" onsubmit="return false;">
+            <form id="dynamic-form" class="card dynamic-form">
                 <div class="form-question">
                     <label for="q1">1. Escribe 1 o 2 palabras de cómo te imaginas que se siente la arena en la superficie de la Luna.</label>
-                    <input type="text" id="q1" name="q1" placeholder="Ej. fría, suave...">
+                    <input type="text" id="q1" name="q1" placeholder="Ej. fría, suave..." required>
                 </div>
 
                 <div class="form-question">
                     <label for="q2">2. ¿Qué tan cómodo/a te sientes tocando cosas muy frías o muy calientes cuando necesitas calmarte o concentrarte?</label>
-                    <input type="range" id="q2" name="q2" min="1" max="5" value="3" oninput="document.getElementById('q2-val').textContent = this.value">
-                    <div class="scale-labels">
-                        <span>1 = Muy incómodo</span>
-                        <span id="q2-val">3</span>
-                        <span>5 = Muy agradable</span>
-                    </div>
+                    <select id="q2" name="q2" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="1">1 - Muy incómodo</option>
+                        <option value="2">2 - Incómodo</option>
+                        <option value="3">3 - Neutral</option>
+                        <option value="4">4 - Agradable</option>
+                        <option value="5">5 - Muy agradable</option>
+                    </select>
                 </div>
 
                 <div class="form-question">
-                    <p>3. Los antiguos mayas representaban el número 5 usando...</p>
-                    <label class="option"><input type="radio" name="q3" value="A"> A) Un círculo</label>
-                    <label class="option"><input type="radio" name="q3" value="B"> B) Una barra horizontal</label>
-                    <label class="option"><input type="radio" name="q3" value="C"> C) Un triángulo</label>
+                    <label for="q3">3. Los antiguos mayas representaban el número 5 usando...</label>
+                    <select id="q3" name="q3" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="A">A) Un círculo</option>
+                        <option value="B">B) Una barra horizontal</option>
+                        <option value="C">C) Un triángulo</option>
+                    </select>
                 </div>
+
+                <button type="submit" class="button">Enviar respuestas</button>
+                <p id="dynamic-form-status" role="status"></p>
             </form>
 
             <a href="https://huggingface.co/spaces/EHRley/GuardianesdeMeztli" class="button" target="_blank" rel="noopener">Launch Dynamic</a>
         </div>
     </section>
+
+    <script>
+        document.getElementById('dynamic-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var data = {
+                arena: document.getElementById('q1').value,
+                comodidad: document.getElementById('q2').value,
+                maya: document.getElementById('q3').value,
+                fecha: new Date().toISOString()
+            };
+            console.log('Respuestas Misión Metztli:', data);
+            document.getElementById('dynamic-form-status').textContent = '¡Gracias! Tus respuestas se registraron.';
+            this.reset();
+        });
+    </script>
 
     <!-- ========================= -->
     <!-- AI -->
